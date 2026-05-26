@@ -45,37 +45,40 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-24 flex items-center justify-center min-h-[80vh] overflow-hidden">
+      <section className="relative pt-40 pb-32 flex items-center justify-center min-h-[92vh] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/ch-home-mockup.png" 
-            alt="Career Highways platform dashboard" 
+            src="/images/adobestock-364843654.webp" 
+            alt="Aerial view of a winding forest road" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-accent/70 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-accent/60 via-accent/40 to-accent/80"></div>
+          <div className="absolute inset-0 bg-black/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
         </div>
-        <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-7xl text-center text-white">
-          <motion.p 
-            {...fadeUp}
-            className="text-secondary font-semibold tracking-[0.2em] uppercase mb-6 text-sm md:text-base"
-          >
-            MANAGE SKILLS. NOT JOBS.
-          </motion.p>
+        <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-6xl text-center">
           <motion.h1 
-            {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-5xl md:text-7xl lg:text-8xl uppercase leading-[1.1] mb-8 max-w-5xl mx-auto"
+            {...fadeUp}
+            className="font-heading text-secondary text-6xl md:text-8xl lg:text-[8.5rem] uppercase leading-[0.95] mb-10 tracking-tight"
+            style={{ textShadow: '0 2px 24px rgba(0,0,0,0.35)' }}
           >
-            SKILLS INTELLIGENCE FOR WORKFORCE CAPABILITY
+            Skills Intelligence<br/>for Workforce<br/>Capability
           </motion.h1>
           <motion.p 
-            {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-12"
+            {...fadeUp} transition={{ duration: 0.6, delay: 0.15 }}
+            className="font-heading text-white text-3xl md:text-5xl lg:text-6xl uppercase mb-8 tracking-tight"
+            style={{ textShadow: '0 2px 16px rgba(0,0,0,0.5)' }}
+          >
+            Manage skills. Not jobs.
+          </motion.p>
+          <motion.p 
+            {...fadeUp} transition={{ duration: 0.6, delay: 0.25 }}
+            className="font-heading text-white/95 text-lg md:text-xl lg:text-2xl uppercase tracking-[0.08em] max-w-3xl mx-auto mb-14"
+            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}
           >
             Replace static job architecture with real-time skills intelligence.
           </motion.p>
-          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.3 }}>
-            <Button asChild size="lg" variant="outline" className="border-white text-accent hover:bg-white hover:text-accent font-semibold tracking-widest uppercase text-sm px-8 py-6 rounded-md">
+          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.35 }}>
+            <Button asChild size="lg" className="bg-white text-secondary hover:bg-white/95 hover:text-secondary font-bold tracking-[0.18em] uppercase text-sm px-10 py-7 rounded-md shadow-lg">
               <Link href="/book-a-strategy-session">See What's Possible</Link>
             </Button>
           </motion.div>

@@ -27,6 +27,8 @@ import BookStrategySession from "@/pages/BookStrategySession";
 import ContactUs from "@/pages/ContactUs";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfUse from "@/pages/TermsOfUse";
+import ContentPage from "@/pages/ContentPage";
+import { dynamicRoutes } from "@/routes-data";
 
 function Router() {
   return (
@@ -53,6 +55,11 @@ function Router() {
         <Route path="/businessolver-pinnacle-partner" component={BusinessolverPartner} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-use" component={TermsOfUse} />
+        {dynamicRoutes.map((r) => (
+          <Route key={r.path} path={r.path}>
+            <ContentPage sourceUrl={r.src} kind={r.kind} eyebrow={r.eyebrow} />
+          </Route>
+        ))}
         <Route component={NotFound} />
       </Switch>
     </SiteLayout>
