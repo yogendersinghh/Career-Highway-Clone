@@ -18,11 +18,6 @@
     "kind": "page"
   },
   {
-    "path": "/run-your-numbers",
-    "src": "https://careerhighways.com/run-your-numbers/",
-    "kind": "page"
-  },
-  {
     "path": "/service-level-agreement",
     "src": "https://careerhighways.com/service-level-agreement/",
     "kind": "page"
@@ -35,11 +30,6 @@
   {
     "path": "/mark-kendall-strategy-session",
     "src": "https://careerhighways.com/mark-kendall-strategy-session/",
-    "kind": "page"
-  },
-  {
-    "path": "/book-a-demo",
-    "src": "https://careerhighways.com/book-a-demo/",
     "kind": "page"
   },
   {
@@ -336,12 +326,6 @@
     "src": "https://careerhighways.com/tag/homepage/",
     "kind": "page",
     "eyebrow": "Tag"
-  },
-  {
-    "path": "/knowledge-categories/updates",
-    "src": "https://careerhighways.com/knowledge-categories/updates/",
-    "kind": "page",
-    "eyebrow": "Knowledge Category"
   },
   {
     "path": "/author/careerhighways",
