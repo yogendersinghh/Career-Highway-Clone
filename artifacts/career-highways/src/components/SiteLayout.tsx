@@ -1,8 +1,53 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+
+type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
+
+const NAV: NavItem[] = [
+  {
+    label: "Skills Intelligence",
+    href: "/career-highways-skills-intelligence",
+    children: [
+      { label: "What Is Skills Intelligence?", href: "/career-highways-skills-intelligence" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "Agentic AI", href: "/artificial-intelligence" },
+    ],
+  },
+  {
+    label: "For Employers",
+    href: "/employers",
+    children: [
+      { label: "Employers", href: "/employers" },
+      { label: "Talent Developers", href: "/talent-developers" },
+      { label: "Pathways in Minutes", href: "/pathways-in-minutes" },
+      { label: "SkillXP", href: "/skillxp-learning-aligned-to-skills-and-roles" },
+    ],
+  },
+  {
+    label: "About",
+    href: "/about-career-highways",
+    children: [
+      { label: "About Career Highways", href: "/about-career-highways" },
+      { label: "Team", href: "/career-highways-team" },
+      { label: "Businessolver Partner", href: "/businessolver-pinnacle-partner" },
+      { label: "Contact Us", href: "/contact-us" },
+    ],
+  },
+  {
+    label: "Insights",
+    href: "/insights",
+    children: [
+      { label: "Insights", href: "/insights" },
+      { label: "Knowledge Center", href: "/knowledge-center" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "In the Press", href: "/in-the-press" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+];
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,10 +75,32 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8 text-[13px] font-semibold tracking-widest uppercase">
-            <Link href="/career-highways-skills-intelligence" className="hover:text-secondary transition-colors">Skills Intelligence</Link>
-            <Link href="/employers" className="hover:text-secondary transition-colors">For Employers</Link>
-            <Link href="/about-career-highways" className="hover:text-secondary transition-colors">About</Link>
-            <Link href="/insights" className="hover:text-secondary transition-colors">Insights</Link>
+            {NAV.map((item) => (
+              <div key={item.label} className="relative group py-6 -my-6">
+                <Link
+                  href={item.href}
+                  className="hover:text-secondary transition-colors inline-flex items-center gap-1"
+                >
+                  {item.label}
+                  {item.children ? <ChevronDown className="h-3 w-3 opacity-70" /> : null}
+                </Link>
+                {item.children ? (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                    <div className="bg-white text-accent rounded-md shadow-2xl py-3 min-w-[260px] border border-black/5">
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href + c.label}
+                          href={c.href}
+                          className="block px-6 py-3 text-[13px] font-semibold tracking-wider uppercase hover:bg-accent/5 hover:text-secondary transition-colors whitespace-nowrap"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            ))}
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
@@ -54,11 +121,19 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="bg-accent border-l-0 text-white w-[300px] flex flex-col gap-8 pt-20">
-                <nav className="flex flex-col gap-6 text-sm font-semibold tracking-widest uppercase">
-                  <Link href="/career-highways-skills-intelligence" className="hover:text-secondary">Skills Intelligence</Link>
-                  <Link href="/employers" className="hover:text-secondary">For Employers</Link>
-                  <Link href="/about-career-highways" className="hover:text-secondary">About</Link>
-                  <Link href="/insights" className="hover:text-secondary">Insights</Link>
+                <nav className="flex flex-col gap-5 text-sm font-semibold tracking-widest uppercase">
+                  {NAV.map((item) => (
+                    <div key={item.label} className="flex flex-col gap-3">
+                      <Link href={item.href} className="hover:text-secondary">{item.label}</Link>
+                      {item.children ? (
+                        <div className="flex flex-col gap-2 pl-3 border-l border-white/15 text-xs font-medium text-white/70">
+                          {item.children.map((c) => (
+                            <Link key={c.href + c.label} href={c.href} className="hover:text-secondary">{c.label}</Link>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
                 </nav>
                 <div className="flex flex-col gap-4 mt-auto">
                   <a href="https://app.careerhighways.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-widest uppercase text-center hover:text-secondary">

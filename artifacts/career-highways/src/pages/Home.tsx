@@ -48,12 +48,11 @@ export default function Home() {
       <section className="relative pt-40 pb-32 flex items-center justify-center min-h-[92vh] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/adobestock-364843654.webp" 
+            src="/images/hero-bgnd.webp" 
             alt="Aerial view of a winding forest road" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/25"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-black/15"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-6xl text-center">
           <motion.h1 
