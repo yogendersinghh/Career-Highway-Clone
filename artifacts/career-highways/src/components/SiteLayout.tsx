@@ -107,7 +107,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             <a href="https://app.careerhighways.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold tracking-widest uppercase hover:text-secondary transition-colors">
               Login
             </a>
-            <Button asChild variant="outline" className="border-white text-accent hover:bg-white hover:text-accent font-semibold tracking-widest uppercase text-xs rounded-md">
+            <Button asChild className="bg-white text-accent hover:bg-white/90 hover:text-accent font-bold tracking-widest uppercase text-xs rounded-md px-5 py-5 shadow-sm">
               <Link href="/book-a-strategy-session">Book a Strategy Session</Link>
             </Button>
           </div>
