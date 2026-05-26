@@ -48,12 +48,12 @@ export default function Home() {
       <section className="relative pt-40 pb-24 flex items-center justify-center min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-forest-road.webp" 
-            alt="Forest road" 
+            src="/images/ch-home-mockup.png" 
+            alt="Career Highways platform dashboard" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-accent/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-accent/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-accent/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-accent/60 via-accent/40 to-accent/80"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-7xl text-center text-white">
           <motion.p 
