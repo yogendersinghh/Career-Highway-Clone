@@ -1,45 +1,53 @@
-# [Project name]
+# Career Highways
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+React + Vite clone of careerhighways.com — a marketing site for a skills intelligence platform. User attested ownership of the source site.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The site runs as the `artifacts/career-highways: web` workflow on port 21131 (proxied at `/`).
+- `pnpm --filter @workspace/career-highways run typecheck` — typecheck the artifact
+- `pnpm run typecheck` — typecheck all packages
+- No backend or database — pure static marketing site.
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- React 19 + Vite, wouter for routing, Tailwind v4, shadcn ui
+- framer-motion for scroll animations
+- No API client, no database
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/career-highways/src/App.tsx` — router (21 routes via wouter)
+- `artifacts/career-highways/src/components/SiteLayout.tsx` — sticky header + footer
+- `artifacts/career-highways/src/pages/*.tsx` — one file per route
+- `artifacts/career-highways/src/index.css` — theme tokens & Google Fonts (Oswald + Work Sans)
+- `artifacts/career-highways/public/images/*` — 49 brand assets downloaded from source
+- `artifacts/career-highways/public/data/site-content.json` — scraped source content (used by Privacy / Terms pages at runtime)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Pure static marketing site — no API server, no DB, no auth.
+- Privacy Policy and Terms of Use fetch their long-form content from `/data/site-content.json` at runtime rather than inlining ~60KB of prose into the bundle.
+- Heading rule in `index.css` sets `color: inherit` so hero sections can use `text-white` wrappers without per-heading overrides.
+- Lead-gen forms (Book a Strategy Session, Contact Us) are non-functional — they show a styled success state on submit but do not POST anywhere. Wire to a real endpoint or external form provider before going live.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Marketing site for Career Highways' skills-intelligence platform. Pages: Home, About, Skills Intelligence, Employers, Solutions, SkillXP, AI Impact, Insights, FAQ, Knowledge Center, Case Studies, In the Press, Team, Job Seekers, Talent Developers, Pathways in Minutes, Book a Strategy Session, Contact Us, Businessolver Partner, Privacy Policy, Terms of Use.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- User wanted an exact-as-possible clone of careerhighways.com — same paths, content, images, fonts, theme.
+- Fonts: Oswald (heading) substituted for the proprietary Lorimer No 2; Work Sans for body.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Hero CTAs use `text-white` wrappers — don't put `text-accent` directly on a heading inside a hero or it will go dark.
+- All internal nav must use wouter's `<Link href="...">`, not `<a>`.
+- If you regenerate page content, also copy `.local/site-content.json` to `artifacts/career-highways/public/data/site-content.json` so the legal pages pick it up.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- See the `pnpm-workspace` skill for workspace structure
+- See the `react-vite` and `design` skills for component conventions
