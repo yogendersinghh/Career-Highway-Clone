@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://careerhighways.com/sitemap.xml
+Sitemap: https://career-highway-clone.replit.app/sitemap.xml
