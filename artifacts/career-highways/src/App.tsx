@@ -29,6 +29,8 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfUse from "@/pages/TermsOfUse";
 import ContentPage from "@/pages/ContentPage";
 import { dynamicRoutes } from "@/routes-data";
+import { FlowEngageProvider, FlowEngageWidget } from "@flowengage/react-chatbot";
+import "@flowengage/react-chatbot/styles.css";
 
 function Router() {
   return (
@@ -68,12 +70,17 @@ function Router() {
 
 function App() {
   return (
+            <FlowEngageProvider
+      siteId="1d07501f-869a-4f11-8510-e1b735ccb971"
+    >
     <TooltipProvider>
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         <Router />
       </WouterRouter>
       <Toaster />
     </TooltipProvider>
+    <FlowEngageWidget />
+    </FlowEngageProvider>
   );
 }
 
