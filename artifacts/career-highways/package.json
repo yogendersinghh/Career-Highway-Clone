@@ -10,7 +10,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@flowengage/react-chatbot": "7.0.5"
+    "@flowengage/react-chatbot": "7.0.7"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
